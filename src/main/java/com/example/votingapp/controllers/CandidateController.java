@@ -1,13 +1,12 @@
 package com.example.votingapp.controllers;
 
 import com.example.votingapp.config.ApplicationConstants;
+import com.example.votingapp.models.CandidateRequest;
 import com.example.votingapp.models.CandidateResponse;
 import com.example.votingapp.services.CandidateService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,11 @@ public class CandidateController {
     @GetMapping("candidates")
     public ResponseEntity<List<CandidateResponse>> getAllCandidates() {
         return ResponseEntity.ok(service.getAllCandidates());
+    }
+
+    @PostMapping("candidate")
+    public ResponseEntity<CandidateResponse> createCandidate(@RequestBody CandidateRequest request) {
+        return ResponseEntity.ok(service.createCandidate(request));
     }
 
 }
