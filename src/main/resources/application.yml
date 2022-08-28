@@ -1,0 +1,8 @@
+spring:
+    liquibase:
+        change-log: classpath:liquibase/master.yml
+    datasource:
+        url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:voting}
+        username: ${DATABASE_USERNAME:postgres}
+        password: ${DATABASE_PASSWORD:postgres}
+        driverClassName: org.postgresql.Driver
