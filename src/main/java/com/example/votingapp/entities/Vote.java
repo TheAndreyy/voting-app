@@ -16,6 +16,10 @@ public class Vote {
     @EmbeddedId
     private VoteCompositeKey voteCompositeKey;
 
+    public Vote(VoteCompositeKey voteCompositeKey) {
+        this.voteCompositeKey = voteCompositeKey;
+    }
+
     @ManyToOne
     @JoinColumn(name = "candidate_id", insertable = false, updatable = false)
     private Candidate candidate;
