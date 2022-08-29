@@ -12,6 +12,7 @@ public class CandidateToCandidateResponseMapper {
                 .candidateId(candidate.getCandidateId())
                 .firstName(candidate.getFirstName())
                 .lastName(candidate.getLastName())
+                .votesCount(candidate.getVotes().size())
                 .build();
     }
 

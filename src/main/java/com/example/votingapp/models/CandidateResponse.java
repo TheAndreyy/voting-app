@@ -6,6 +6,7 @@ import lombok.Builder;
 public record CandidateResponse(
         Integer candidateId,
         String firstName,
-        String lastName
+        String lastName,
+        Integer votesCount
 ) {
 }
