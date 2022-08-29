@@ -23,6 +23,7 @@ public class Voter {
     private String lastName;
 
     @OneToMany(mappedBy = "voter")
+    @Builder.Default
     List<Vote> votes = new ArrayList<>();
 
 }
