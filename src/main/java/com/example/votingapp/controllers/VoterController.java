@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class VoterController {
     }
 
     @PostMapping("voter")
-    public ResponseEntity<VoterResponse> createVoter(@RequestBody VoterRequest request) {
+    public ResponseEntity<VoterResponse> createVoter(@RequestBody @Valid VoterRequest request) {
         return ResponseEntity.ok(service.createVoter(request));
     }
 

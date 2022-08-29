@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -24,7 +25,7 @@ public class CandidateController {
     }
 
     @PostMapping("candidate")
-    public ResponseEntity<CandidateResponse> createCandidate(@RequestBody CandidateRequest request) {
+    public ResponseEntity<CandidateResponse> createCandidate(@RequestBody @Valid CandidateRequest request) {
         return ResponseEntity.ok(service.createCandidate(request));
     }
 

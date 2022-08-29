@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(ApplicationConstants.API_PREFIX)
 @RequiredArgsConstructor
@@ -18,7 +20,7 @@ public class VoteController {
     private final VoteService service;
 
     @PostMapping("vote")
-    public ResponseEntity<Void> castVote(@RequestBody VoteRequest request) {
+    public ResponseEntity<Void> castVote(@RequestBody @Valid VoteRequest request) {
         service.castVote(request);
         return ResponseEntity.accepted().build();
     }
