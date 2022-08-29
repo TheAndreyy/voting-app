@@ -8,7 +8,11 @@ import org.springframework.stereotype.Component;
 public class VoterToVoterResponseMapper {
 
     public VoterResponse map(Voter voter) {
-        return new VoterResponse(voter.getFirstName(), voter.getLastName());
+        return VoterResponse.builder()
+                .voterId(voter.getVoterId())
+                .firstName(voter.getFirstName())
+                .lastName(voter.getLastName())
+                .build();
     }
 
 }
